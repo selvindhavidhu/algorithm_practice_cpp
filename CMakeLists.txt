@@ -19,10 +19,10 @@ FetchContent_MakeAvailable(googletest)
 
 # --- Source Code Configuration ---
 # 1. Find all .cpp files in the 'src/' directory
-file(GLOB ALGORITHM_SOURCES "src/*.cpp")
+file(GLOB ALGORITHM_SOURCES "src/*.cpp" "src/leetcode/*.cpp")
 
 # 2. Find all .h files in the 'include/' directory
-file(GLOB ALGORITHM_HEADERS "include/*.h")
+file(GLOB ALGORITHM_HEADERS "include/*.h" "include/leetcode/*.h")
 
 include(compiler_flags.cmake)
 
@@ -40,7 +40,7 @@ target_include_directories(algorithms
 
 # --- Unit Testing Configuration ---
 # Find all .cpp files in the 'test/' directory and store them in a variable
-file(GLOB TEST_SOURCES "test/*.cpp")
+file(GLOB TEST_SOURCES "test/*.cpp" "test/leetcode/*.cpp")
 
 # 2. Define the test executable
 # Use the variable containing all test source files
