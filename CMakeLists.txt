@@ -11,11 +11,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include(FetchContent)
 FetchContent_Declare(
         googletest
-        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+        # Pointing to the specific stable 1.17.0 release
+        URL https://github.com/google/googletest/releases/download/v1.17.0/googletest-1.17.0.tar.gz
 )
-# Note: Use a specific, stable release tag (e.g., release-1.14.0)
-FetchContent_MakeAvailable(googletest)
 
+# For Windows users: Prevents issues with gtest overriding your compiler settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
 # --- Source Code Configuration ---
 # 1. Find all .cpp files in the 'src/' directory
@@ -52,7 +54,8 @@ add_executable(all_unit_tests
 target_link_libraries(all_unit_tests
         PRIVATE
         algorithms
-        gtest_main
+        GTest::gmock
+        GTest::gtest_main
 )
 
 # Enable testing
