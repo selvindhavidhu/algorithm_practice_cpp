@@ -22,10 +22,12 @@ FetchContent_MakeAvailable(googletest)
 
 # --- Source Code Configuration ---
 # 1. Find all .cpp files in the 'src/' directory
-file(GLOB ALGORITHM_SOURCES "src/*.cpp" "src/leetcode/*.cpp")
+file(GLOB ALGORITHM_SOURCES "src/*.cpp" "src/leetcode/*.cpp" "src/data-structures/*.cpp")
+# Exclude files that have a main() function from the library to prevent multiple-definition errors
+list(REMOVE_ITEM ALGORITHM_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/data-structures/stack-problems.cpp")
 
 # 2. Find all .h files in the 'include/' directory
-file(GLOB ALGORITHM_HEADERS "include/*.h" "include/leetcode/*.h")
+file(GLOB ALGORITHM_HEADERS "include/*.h" "include/leetcode/*.h" "include/data-structures/*.h")
 
 include(compiler_flags.cmake)
 
@@ -40,6 +42,12 @@ target_include_directories(algorithms
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+
+# --- Executables ---
+# Create a dedicated executable for running the Chapter 3 stack problems
+add_executable(stack_exercises src/data-structures/stack-problems.cpp)
+target_link_libraries(stack_exercises PRIVATE algorithms)
+
 
 # --- Unit Testing Configuration ---
 # Find all .cpp files in the 'test/' directory and store them in a variable
