@@ -22,10 +22,10 @@ FetchContent_MakeAvailable(googletest)
 
 # --- Source Code Configuration ---
 # 1. Find all .cpp files in the 'src/' directory
-file(GLOB ALGORITHM_SOURCES "src/*.cpp" "src/leetcode/*.cpp")
+file(GLOB ALGORITHM_SOURCES "src/*.cpp" "src/leetcode/*.cpp" "src/data-structures/*.cpp")
 
 # 2. Find all .h files in the 'include/' directory
-file(GLOB ALGORITHM_HEADERS "include/*.h" "include/leetcode/*.h")
+file(GLOB ALGORITHM_HEADERS "include/*.h" "include/leetcode/*.h" "include/data-structures/*.h")
 
 include(compiler_flags.cmake)
 
