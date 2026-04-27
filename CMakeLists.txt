@@ -6,6 +6,7 @@ project(AlgorithmsPractice VERSION 1.0)
 # Set the C++ standard to C++20
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # 1. Use FetchContent to download Google Test and make it available
 include(FetchContent)

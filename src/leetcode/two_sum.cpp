@@ -16,7 +16,7 @@ namespace LeetCode {
                 return {it->second, static_cast<int>(index)};
             }
 
-            visited.insert({nums[index], index});
+            visited.insert({nums[index], static_cast<int>(index)});
         }
 
         return {};
