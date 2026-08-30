@@ -1,6 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# Local IDE inspection-severity cache, churns on every index
+/editor.xml
 # Ignored default folder with query files
 /queries/
 # Datasource local storage ignored files
