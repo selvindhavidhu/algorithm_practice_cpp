@@ -1,4 +1,4 @@
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     # Basic flags suitable for LeetCode practice
     set(CMAKE_CXX_FLAGS "-std=c++20 -pthread -Wall -Wextra")
     set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
