@@ -2,37 +2,37 @@
 
 namespace data_structures {
 
-void Stack::push(const StackElement& value) {
-    elements.push_back(value);
+void stack::push(const value_type& value) {
+    m_elements.push_back(value);
 }
 
-void Stack::pop() {
-    if (isEmpty()) {
+void stack::pop() {
+    if (empty()) {
         throw std::out_of_range("Stack is empty");
     }
-    elements.pop_back();
+    m_elements.pop_back();
 }
 
-StackElement& Stack::top() {
-    if (isEmpty()) {
+stack::value_type& stack::top() {
+    if (empty()) {
         throw std::out_of_range("Stack is empty");
     }
-    return elements.back();
+    return m_elements.back();
 }
 
-const StackElement& Stack::top() const {
-    if (isEmpty()) {
+const stack::value_type& stack::top() const {
+    if (empty()) {
         throw std::out_of_range("Stack is empty");
     }
-    return elements.back();
+    return m_elements.back();
 }
 
-bool Stack::isEmpty() const {
-    return elements.empty();
+bool stack::empty() const {
+    return m_elements.empty();
 }
 
-size_t Stack::size() const {
-    return elements.size();
+stack::size_type stack::size() const {
+    return m_elements.size();
 }
 
 } // namespace data_structures
