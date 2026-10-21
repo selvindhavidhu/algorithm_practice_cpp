@@ -1,35 +1,37 @@
 #pragma once
 
-#include <vector>
+#include <cstddef>
 #include <stdexcept>
+#include <vector>
 
 namespace data_structures {
 
-typedef int StackElement;
-
-class Stack {
+class stack {
 public:
-    Stack() = default;
-    ~Stack() = default;
+    using value_type = int;
+    using size_type = std::size_t;
+
+    stack() = default;
+    ~stack() = default;
 
     // Pushes an element onto the stack
-    void push(const StackElement& value);
+    void push(const value_type& value);
 
     // Removes the top element from the stack
     void pop();
 
     // Returns a reference to the top element
-    StackElement& top();
-    const StackElement& top() const;
+    value_type& top();
+    const value_type& top() const;
 
     // Checks if the stack is empty
-    bool isEmpty() const;
+    bool empty() const;
 
     // Returns the number of elements in the stack
-    size_t size() const;
+    size_type size() const;
 
 private:
-    std::vector<StackElement> elements;
+    std::vector<value_type> m_elements;
 };
 
 } // namespace data_structures

@@ -9,8 +9,8 @@ using namespace data_structures;
 // "let stack be a stack of integers and x be an integer variable. use the functions push, pop, 
 // createstack, stackempty or stackfull to write a function that sets x to the top element of 
 // the stack and leaves the top element unchanged. if stack is empty, sets x to maxint."
-void exercise_3_1_2(Stack& stack, int& x) {
-    if (stack.isEmpty()) {
+void exercise_3_1_2(stack& stack, int& x) {
+    if (stack.empty()) {
         x = INT_MAX;
     } else {
         // In the textbook, pop() removes AND returns the item.
@@ -31,7 +31,7 @@ void do_exercises() {
     std::cout << "Stack Exercises - Chapter 3\n\n";
     
     std::cout << "--- Exercise 3.1.2 ---\n";
-    Stack s;
+    stack s;
     int x = 0;
     
     // Test 1: Empty stack
