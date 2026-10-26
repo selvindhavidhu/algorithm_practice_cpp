@@ -3,20 +3,20 @@
 //
 
 #include "leetcode/two_sum.h"
+#include <ranges>
 #include <unordered_map>
 
 namespace LeetCode {
     std::vector<int> twoSum(const std::vector<int>& nums, const int target) {
         std::unordered_map<int, int> visited;
-        const auto size = nums.size();
+        visited.reserve(nums.size());
 
-        for (auto index = decltype(nums.size()){0}; index < size; ++index) {
-            int complement = target - nums[index];
-            if (auto it = visited.find(complement); it != visited.end()) {
+        for (const auto [index, value] : std::views::enumerate(nums)) {
+            if (const auto it = visited.find(target - value); it != visited.end()) {
                 return {it->second, static_cast<int>(index)};
             }
 
-            visited.insert({nums[index], static_cast<int>(index)});
+            visited.emplace(value, static_cast<int>(index));
         }
 
         return {};
