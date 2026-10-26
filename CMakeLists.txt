@@ -3,8 +3,8 @@
 cmake_minimum_required(VERSION 3.31)
 project(AlgorithmsPractice VERSION 1.0)
 
-# Set the C++ standard to C++20
-set(CMAKE_CXX_STANDARD 20)
+# Set the C++ standard to C++23
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
